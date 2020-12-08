@@ -1,24 +1,42 @@
 module.exports = {
+  env: {
+    es2021: true,
+    node: true,
+    jest: true
+  },
+  extends: [
+    'standard'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
+  plugins: [
+    '@typescript-eslint',
+    'import-helpers'
   ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
+    'space-before-function-paren': 'off',
+    'no-useless-constructor': 'off',
+    'no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '_'
+      }
+    ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
-};
+    'import-helpers/order-imports': [
+      'error',
+      {
+        newlinesBetween: 'always',
+        groups: [['/^@nestjs/'], 'module', ['parent', 'sibling', 'index']],
+        alphabetize: {
+          order: 'asc',
+          ignoreCase: true
+        }
+      }
+    ]
+  }
+}

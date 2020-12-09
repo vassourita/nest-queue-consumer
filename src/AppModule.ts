@@ -2,8 +2,8 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { ClientsModule, Transport } from '@nestjs/microservices'
 
-import { ConfigModule } from './config/config.module'
-import { MailModule } from './mail/mail.module'
+import { ConfigModule } from './config/ConfigModule'
+import { MailModule } from './mail/MailModule'
 
 @Module({
   imports: [ConfigModule, MailModule, ClientsModule.registerAsync([

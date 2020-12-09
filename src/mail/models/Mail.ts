@@ -1,5 +1,5 @@
-export class MailModel {
-  from: string
+export class Mail {
+  from?: string
   to: string
   subject: string
   body?: string

@@ -1,13 +1,14 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
 import { ConfigModule as NestConfigModule } from '@nestjs/config'
 
-import { redisConfig } from './redis.config'
+import { mailConfig } from './mailConfig'
+import { redisConfig } from './redisConfig'
 
 @Module({
   imports: [
     NestConfigModule.forRoot({
       isGlobal: true,
-      load: [redisConfig]
+      load: [redisConfig, mailConfig]
     })
   ],
   controllers: [],
